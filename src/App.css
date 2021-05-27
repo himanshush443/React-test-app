@@ -1,0 +1,14 @@
+.app {
+  height: 100vh;
+  background-image: url(./assets/pexels-katerina-holmes-5905700@2x.png);
+  background-size:cover;
+}
+.header {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+}
+.rightHeader {
+  display: flex;
+
+}
