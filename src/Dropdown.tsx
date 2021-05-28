@@ -1,14 +1,11 @@
 import { Button, makeStyles } from '@material-ui/core';
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Link } from 'react-router-dom';
 import Login from './Login';
 import Logo from './assets/user.svg';
 import userPic from './assets/user_pic.png';
 
 const useStyles = makeStyles({
-    dropdownList: {
-    //   display: 'none'
-    },
     bullet: {
       display: 'inline-block',
       margin: '0 2px',
@@ -37,14 +34,10 @@ function Dropdown() {
 
     return (
         <div className="">
-            
+
             {
                 check ? (
-                    <Button 
-                    // onClick={() => {
-                    //     setOpenDropdown(!openDropdown);
-                    // }}
-                    ><img src={userPic} /></Button>
+                    <Button ><img src={userPic} /></Button>
                 ) : (
                     <Button onClick={() => {
                         setOpenDropdown(!openDropdown);
@@ -53,34 +46,22 @@ function Dropdown() {
                 )
             }
             
-            {openDropdown ? (
-            <div className={classes.dropdownList}>
-                <Router>
-                    <nav>
-                        <ul>
-                            <li>
-                            <Link to="/login">Login</Link>
-                            </li>
-                            <li>
-                            <Link to="/signup">Sign Up</Link>
-                            </li>
-                        </ul>
-                    </nav>
-                    <Switch>
-                        
-                        <Route path="/login">
-                            <Login close={() => setOpenDropdown(false)} submission={(value: boolean): void => {
-                                setCheck(value);
-                                setOpenDropdown(!value);
-                                }} 
-                            />
-                        </Route>
-                        <Route path="/signup">
-                            {/* <Signup /> */}
-                        </Route>
-                    </Switch>
-                </Router>
-            </div>
+            { 
+                openDropdown ? (
+                    <div>
+                        <Router>
+                            <nav>
+                                <ul>
+                                    <li>
+                                        <Link to="/login">Login</Link>
+                                    </li>
+                                    <li>
+                                        <Link to="/signup">Sign Up</Link>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </Router>
+                    </div>
             ) : (
                 <div></div>
             )}

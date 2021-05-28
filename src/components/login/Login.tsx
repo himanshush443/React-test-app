@@ -42,12 +42,14 @@ const useStyles = makeStyles({
     },
 });
 
-type Props = {
+interface IProps {
     close(): void;
     submission:(val:boolean) => void;
 }
 
-function Login({ close, submission }: Props) {
+function Login(props: IProps) {
+    
+    const { close, submission } = props;
     const classes = useStyles();
 
     return (
@@ -97,9 +99,6 @@ function Login({ close, submission }: Props) {
                             </div>
                         </div>
                     </CardContent>
-                    {/* <CardActions>
-                        <Button size="small">Learn More</Button>
-                    </CardActions> */}
                 </Card>
             </form>
         </div>

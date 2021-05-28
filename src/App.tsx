@@ -1,13 +1,11 @@
 import './App.css';
-import { useState } from 'react';
-import Dropdown from './Dropdown';
-import Profile from './Profile';
-import { Button } from '@material-ui/core';
-import React from 'react';
+import React,{ useState } from 'react';
+import { BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom';
+
+import Homepage from './Homepage';
+import Login from './Login';
 
 function App() {
-  const [loggedIn, setLoggedIn] = useState(false);
-  const [openDropdown, setOpenDropdown] = useState(true);
 
   return (
     <div className="app">
@@ -17,17 +15,16 @@ function App() {
             ILRNU
         </a>
         </h1>
-        <div className="rightHeader">
-          <Button >Join as a Tutor</Button>
-          {/* <img src="" alt="" /> */}
-          {loggedIn ? (
-            <Profile />
-          ) : (
-            <Dropdown />
-            
-          )
-          }
-        </div>
+        <Router>
+                    <Switch>
+                        
+                        <Route path="/login" component={Login}  />
+                        <Route path="/signup">
+                            {/* <Signup /> */}
+                        </Route>
+                    </Switch>
+                </Router>
+        <Homepage />
       </div>
 
     </div>
