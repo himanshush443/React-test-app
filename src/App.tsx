@@ -3,6 +3,7 @@ import { useState } from 'react';
 import Dropdown from './Dropdown';
 import Profile from './Profile';
 import { Button } from '@material-ui/core';
+import React from 'react';
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -23,7 +24,7 @@ function App() {
             <Profile />
           ) : (
             <Dropdown />
-
+            
           )
           }
         </div>

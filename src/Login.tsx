@@ -42,12 +42,19 @@ const useStyles = makeStyles({
     },
 });
 
-function Login({ close, submission }) {
+type Props = {
+    close(): void;
+    submission:(val:boolean) => void;
+}
+
+function Login({ close, submission }: Props) {
     const classes = useStyles();
 
     return (
         <div>
-            <form>
+            <form onSubmit={(): void => {
+                submission(true);
+            }}>
                 <Card className={classes.root}>
                     <CardContent>
                         <DialogTitle id="id">
@@ -80,16 +87,8 @@ function Login({ close, submission }) {
                             </Typography>
                         </div>
                         <div>
-                            <Button type="submit" submit={() => {
-                                
-                                submission(true);
-
-                                submission(true);
-                            }
-                            
-                            
-                            }>Login</Button>
                             <Button>Login with gmail</Button>
+                            <Button type="submit" >Login</Button>
                             <div className=''>
                                 <Typography>
                                     Not a member of ILRNU?

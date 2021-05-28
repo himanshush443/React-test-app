@@ -29,11 +29,6 @@ const useStyles = makeStyles({
     }
   });
 
-
-const handleDropdown = () => {
-    // const classes = useStyles();
-} 
-
 function Dropdown() {
     const classes = useStyles();
     
@@ -74,7 +69,7 @@ function Dropdown() {
                     <Switch>
                         
                         <Route path="/login">
-                            <Login className={classes.login} close={() => setOpenDropdown(false)} submission={(value) => {
+                            <Login close={() => setOpenDropdown(false)} submission={(value: boolean): void => {
                                 setCheck(value);
                                 setOpenDropdown(!value);
                                 }} 
